@@ -33,6 +33,50 @@
         return Rapiro.__super__.start.apply(this, arguments);
       };
 
+      Rapiro.prototype.move = function(motionNumber) {
+        return this.connection.write("#M" + motionNumber);
+      };
+
+      Rapiro.prototype.stop = function() {
+        return this.move(0);
+      };
+
+      Rapiro.prototype.forward = function() {
+        return this.move(1);
+      };
+
+      Rapiro.prototype.backward = function() {
+        return this.move(2);
+      };
+
+      Rapiro.prototype.right = function() {
+        return this.move(3);
+      };
+
+      Rapiro.prototype.left = function() {
+        return this.move(4);
+      };
+
+      Rapiro.prototype.green = function() {
+        return this.move(5);
+      };
+
+      Rapiro.prototype.yellow = function() {
+        return this.move(6);
+      };
+
+      Rapiro.prototype.blue = function() {
+        return this.move(7);
+      };
+
+      Rapiro.prototype.red = function() {
+        return this.move(8);
+      };
+
+      Rapiro.prototype.push = function() {
+        return this.move(9);
+      };
+
       return Rapiro;
 
     })(Cylon.Driver);
