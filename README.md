@@ -22,7 +22,14 @@ var Cylon = require('cylon');
 // Initialize the robot
 Cylon.robot({
   connection: { name: 'rapiro', adaptor: 'rapiro', port: '/dev/ttyACM0' },
-  ...
+  device: {name: 'rapiro', driver: 'rapiro'},
+
+  work: function(my) {
+    my.rapiro.forward();
+    after((10).seconds(), function() { 
+      my.rapiro.stop();
+    });
+  }
 }).start();
 ```
 
@@ -35,7 +42,14 @@ Cylon.robot
   connection:
     name: 'rapiro', adaptor: 'rapiro', port: '/dev/ttyACM0'
 
-	...
+  device:
+    name: 'rapiro', driver: 'rapiro'
+
+  work: (my) ->
+    my.rapiro.forward()
+
+    after 10.seconds(), -> my.rapiro.stop()
+
 
 .start()
 ```
