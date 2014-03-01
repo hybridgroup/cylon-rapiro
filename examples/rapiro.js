@@ -10,6 +10,7 @@ Cylon.robot({
 
   	my.rapiro.on('start', function() {
 	  	Logger.info("forward");
+	  	my.rapiro.red();
 	  
 	    every(1..second(), function() {
 	    	if (my['doneWalking'] == false)
@@ -21,6 +22,7 @@ Cylon.robot({
 	    after(10..seconds(), function() {
 	    	Logger.info("halt");
 	    	my.rapiro.halt();
+	    	my.rapiro.blue();
 	    	my['doneWalking'] = true;
 	    });
 	  });

@@ -21,20 +21,31 @@ var Cylon = require('cylon');
 
 // Initialize the robot
 Cylon.robot({
-  connection: { name: 'rapiro', adaptor: 'rapiro', port: '/dev/ttyACM0' },
+  connection: { name: 'rapiro', adaptor: 'rapiro', port: '/dev/ttyUSB0' },
   device: {name: 'rapiro', driver: 'rapiro'},
 
   work: function(my) {
-    my.rapiro.forward();
-    after((10).seconds(), function() { 
-      my.rapiro.stop();
+    my['doneWalking'] = false ;
+
+    my.rapiro.on('start', function() {
+      Logger.info("forward");
+    
+      every(1..second(), function() {
+        if (my['doneWalking'] == false)
+          my.rapiro.forward();
+      });
+      after(10..seconds(), function() {
+        Logger.info("halt");
+        my.rapiro.halt();
+        my['doneWalking'] = true;
+      });
     });
   }
 }).start();
 ```
 
 ### CoffeeScript:
-```
+```ruby
 Cylon = require('cylon')
 
 # Initialize the robot
@@ -46,10 +57,18 @@ Cylon.robot
     name: 'rapiro', driver: 'rapiro'
 
   work: (my) ->
-    my.rapiro.forward()
+    my['doneWalking'] = false
 
-    after 10.seconds(), -> my.rapiro.stop()
-
+    my.rapiro.on 'start', ->
+      Logger.info("forward")
+    
+      every 1.second(), ->
+        my.rapiro.forward() if (my['doneWalking'] == false)
+          
+      after 10.seconds(), ->
+        Logger.info("halt")
+        my.rapiro.halt()
+        my['doneWalking'] = true
 
 .start()
 ```
