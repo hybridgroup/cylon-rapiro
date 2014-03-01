@@ -11,6 +11,8 @@ Cylon.robot({
       Logger.info("forward");
       walking = true ;
 
+      my.rapiro.red();
+      
       every(1..second(), function() {
         if (walking == true)
           my.rapiro.forward();

@@ -6,9 +6,17 @@ Cylon.robot({
   device: {name: 'rapiro', driver: 'rapiro'},
 
   work: function(my) {
-    //my.rapiro.forward();
-    every((1).second(), function() { 
-      my.rapiro.blue();
+  	var on = false;
+    every((1).second(), function() {
+    	if (on == true) {
+    		Logger.info('on');
+    		my.rapiro.led(0, 0, 0);
+    		on = false;
+    	} else {
+    		Logger.info('off');
+    		my.rapiro.led(255, 0, 0);
+    		on = true;
+    	}
     });
   }
 }).start();
