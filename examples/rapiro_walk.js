@@ -5,12 +5,13 @@ Cylon.robot({
   device: {name: 'rapiro', driver: 'rapiro'},
 
   work: function(my) {
+    var doneWalking = false ;
+
     var startWalking = function() {
       Logger.info("forward");
-      my['doneWalking'] = false ;
 
       every(1..second(), function() {
-        if (my['doneWalking'] == false)
+        if (doneWalking == false)
           my.rapiro.forward();
       });
     }
@@ -18,7 +19,7 @@ Cylon.robot({
     var stopWalking = function() {
       Logger.info("halt");
       my.rapiro.halt();
-      my['doneWalking'] = true;
+      doneWalking = true;
     }
 
     my.rapiro.on('start', function() {
