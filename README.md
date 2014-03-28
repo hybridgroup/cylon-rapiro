@@ -97,6 +97,8 @@ Thank you!
 
 ## Release History
 
+Version 0.2.0 - Update to Cylon 0.12.0
+
 Version 0.1.0 - Initial release
 
 ## License
