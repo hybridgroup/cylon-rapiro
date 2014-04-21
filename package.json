@@ -5,29 +5,26 @@
   "description": "Cylon module for Rapiro",
   "homepage": "http://cylonjs.com",
   "bugs": "https://github.com/hybridgroup/cylon-rapiro/issues",
-  "author": {
-    "name": "The Hybrid Group",
-    "email": "",
-    "url": "http://hybridgroup.com"
-  },
+
+  "author": "The Hybrid Group <cylonjs@hybridgroup.com>",
+
   "repository": {
     "type": "git",
     "url": "https://github.com/hybridgroup/cylon-rapiro"
   },
-  "licenses": [
-    {
-      "type": "Apache 2.0"
-    }
-  ],
+
+  "license": "Apache 2.0",
+
   "devDependencies": {
     "sinon-chai": "~2.4.0",
-    "chai": "~1.7.2",
-    "mocha": "~1.12.1",
-    "sinon": "~1.7.3"
+    "chai":       "~1.7.2",
+    "mocha":      "~1.12.1",
+    "sinon":      "~1.7.3"
   },
+
   "dependencies": {
     "node-namespace": "~1.0.0",
-    "cylon": ">= 0.12.0",
-    "serialport": ">= 1.3.1"
+    "cylon":          ">= 0.12.0",
+    "serialport":     ">= 1.3.1"
   }
 }
