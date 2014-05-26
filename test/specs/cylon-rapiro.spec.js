@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 var module = source("cylon-rapiro");
 
@@ -9,5 +9,9 @@ describe("Cylon.Rapiro", function() {
 
   it("should be able to create adaptor", function() {
     module.adaptor.should.be.a('function');
+  });
+
+  it("should be able to create driver", function() {
+    module.driver.should.be.a('function');
   });
 });

@@ -1,14 +1,9 @@
-'use strict';
+"use strict";
 
-var driver = source("driver");
+var Driver = source("driver");
 
 describe("Cylon.Drivers.Rapiro", function() {
-  var module;
-  module = new Cylon.Drivers.Rapiro({
-    device: {
-      connection: 'connect'
-    }
-  });
+  var driver = new Driver({ device: { connection: 'connect' } });
 
   it("needs tests");
 });
