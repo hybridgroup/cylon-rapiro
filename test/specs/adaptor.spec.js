@@ -1,14 +1,9 @@
-'use strict';
+"use strict";
 
-var adaptor = source("adaptor");
+var Adaptor = source("adaptor");
 
 describe("Cylon.Adaptors.Rapiro", function() {
-  var module;
-  module = new Cylon.Adaptors.Rapiro({
-    connection: {
-      port: "/dev/ABCD"
-    }
-  });
-  
+  var adaptor = new Adaptor({ connection: { port: "/dev/ABCD" } });
+
   it("needs tests");
 });
