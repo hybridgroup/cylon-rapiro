@@ -1,6 +1,6 @@
 {
   "name": "cylon-rapiro",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "main": "lib/cylon-rapiro.js",
   "description": "Cylon module for Rapiro",
   "homepage": "http://cylonjs.com",
@@ -20,6 +20,10 @@
     "chai":       "~1.7.2",
     "mocha":      "~1.12.1",
     "sinon":      "~1.7.3"
+  },
+
+  "peerDependencies": {
+    "cylon": ">= 0.15.0 < 1"
   },
 
   "dependencies": {
