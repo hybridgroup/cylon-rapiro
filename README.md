@@ -29,7 +29,7 @@ Cylon.robot({
 
     my.rapiro.on('start', function() {
       Logger.info("forward");
-    
+
       every(1..second(), function() {
         if (my['doneWalking'] == false)
           my.rapiro.forward();
@@ -44,34 +44,6 @@ Cylon.robot({
 }).start();
 ```
 
-### CoffeeScript:
-```ruby
-Cylon = require('cylon')
-
-# Initialize the robot
-Cylon.robot
-  connection:
-    name: 'rapiro', adaptor: 'rapiro', port: '/dev/ttyACM0'
-
-  device:
-    name: 'rapiro', driver: 'rapiro'
-
-  work: (my) ->
-    my['doneWalking'] = false
-
-    my.rapiro.on 'start', ->
-      Logger.info("forward")
-    
-      every 1.second(), ->
-        my.rapiro.forward() if (my['doneWalking'] == false)
-          
-      after 10.seconds(), ->
-        Logger.info("halt")
-        my.rapiro.halt()
-        my['doneWalking'] = true
-
-.start()
-```
 ## Connecting to Rapiro
 
 ### Linux
