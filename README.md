@@ -69,6 +69,8 @@ Thank you!
 
 ## Release History
 
+Version 0.5.0 - Compatibility with Cylon 0.16.0
+
 Version 0.4.1 - Add peerDependencies to package.json
 
 Version 0.4.0 - Compatibility with Cylon 0.15.0
