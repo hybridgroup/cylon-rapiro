@@ -16,37 +16,38 @@ describe("Cylon.Drivers.Rapiro", function() {
     expect(driver).to.be.an.instanceOf(Driver);
   });
 
-  describe("#start", function() {
-    var read;
+  // TODO: read data
+  // describe("#start", function() {
+  //   var read;
 
-    beforeEach(function() {
-      driver.connection = { read: stub() };
-      read = driver.connection.read;
-    });
+  //   beforeEach(function() {
+  //     driver.connection = { read: stub() };
+  //     read = driver.connection.read;
+  //   });
 
-    it("calls #read on the connection", function() {
-      driver.start(function() {});
-      expect(read).to.be.called;
-    });
+  //   it("calls #read on the connection", function() {
+  //     driver.start(function() {});
+  //     expect(read).to.be.called;
+  //   });
 
-    describe("the callback to #read", function() {
-      beforeEach(function() {
-        driver.device = { emit: spy() };
-        driver.parse = spy();
+  //   describe("the callback to #read", function() {
+  //     beforeEach(function() {
+  //       driver.device = { emit: spy() };
+  //       driver.parse = spy();
 
-        read.yields("data");
-        driver.start(function() { });
-      });
+  //       read.yields("data");
+  //       driver.start(function() { });
+  //     });
 
-      it("emits the provided data", function() {
-        expect(driver.device.emit).to.be.calledWith('data', 'data');
-      });
+  //     it("emits the provided data", function() {
+  //       expect(driver.device.emit).to.be.calledWith('data', 'data');
+  //     });
 
-      it("calls #parse with the data", function() {
-        expect(driver.parse).to.be.calledWith('data');
-      })
-    });
-  });
+  //     it("calls #parse with the data", function() {
+  //       expect(driver.parse).to.be.calledWith('data');
+  //     })
+  //   });
+  // });
 
   describe("#commands", function() {
     it("is an array of Rapiro commands", function() {
