@@ -8,29 +8,27 @@ Cylon.robot({
     var walking = false ;
 
     var startWalking = function() {
-      Logger.info("forward");
+      console.log("forward");
       walking = true ;
 
       every(1..second(), function() {
-        if (walking == true)
+        if (walking == true) {
           my.rapiro.forward();
+        }
       });
     }
 
     var stopWalking = function() {
-      Logger.info("halt");
+      console.log("halt");
       walking = false;
 
-      my.rapiro.halt();
+      my.rapiro.stop();
       after(1..second(), function() {
         my.rapiro.led(255, 0, 0);
       });
     }
 
-    my.rapiro.on('start', function() {
-      startWalking();
-    
-      after(10..seconds(), stopWalking);
-    });
+    startWalking();    
+    after(10..seconds(), stopWalking);
   }
 }).start();
