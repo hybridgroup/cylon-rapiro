@@ -7,24 +7,19 @@ Cylon.robot({
 
   work: function(my) {
   	my['doneWalking'] = false ;
-
-  	my.rapiro.on('start', function() {
-	  	Logger.info("forward");
-	  	my.rapiro.red();
-	  
-	    every(1..second(), function() {
-	    	if (my['doneWalking'] == false)
-	    		my.rapiro.forward();
-	    });
-	    // after((3).seconds(), function() { 
-	    //   my.rapiro.backward();
-	    // });
-	    after(10..seconds(), function() {
-	    	Logger.info("halt");
-	    	my.rapiro.halt();
-	    	my.rapiro.blue();
-	    	my['doneWalking'] = true;
-	    });
-	  });
+		console.log("forward");
+  	my.rapiro.led(255, 0, 0);
+  
+    every(1..second(), function() {
+    	if (my['doneWalking'] == false) {
+    		my.rapiro.forward();
+    	}
+    });
+    after(10..seconds(), function() {
+    	console.log("stop");
+    	my.rapiro.stop();
+    	my.rapiro.led(0, 0, 0);
+    	my['doneWalking'] = true;
+    });
   }
 }).start();

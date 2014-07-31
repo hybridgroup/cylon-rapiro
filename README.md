@@ -27,19 +27,19 @@ Cylon.robot({
   work: function(my) {
     my['doneWalking'] = false ;
 
-    my.rapiro.on('start', function() {
-      Logger.info("forward");
+    console.log("forward");
 
-      every(1..second(), function() {
-        if (my['doneWalking'] == false)
-          my.rapiro.forward();
-      });
-      after(10..seconds(), function() {
-        Logger.info("halt");
-        my.rapiro.halt();
-        my['doneWalking'] = true;
-      });
+    every(1..second(), function() {
+      if (my['doneWalking'] == false) {
+        my.rapiro.forward();
+      }
     });
+    after(10..seconds(), function() {
+      console.log("halt");
+      my.rapiro.stop();
+      my['doneWalking'] = true;
+    });
+
   }
 }).start();
 ```
