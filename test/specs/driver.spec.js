@@ -17,13 +17,10 @@ describe("Cylon.Drivers.Rapiro", function() {
   });
 
   describe("#commands", function() {
-    it("is an array of Rapiro commands", function() {
-      var commands = driver.commands;
-      expect(commands).to.be.an('array');
-
-      commands.forEach(function(command) {
-        expect(command).to.be.a('string');
-      });
+    it("is an object containing Rapiro commands", function() {
+      for (var c in driver.commands) {
+        expect(driver.commands[c]).to.be.a('function');
+      }
     });
   });
 
