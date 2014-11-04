@@ -6,23 +6,15 @@ var Adaptor = source('adaptor'),
     Driver = source('driver');
 
 describe("cylon-rapiro", function() {
-  describe("#register", function() {
-    var bot, adaptor, driver;
-
-    beforeEach(function() {
-      bot = {}
-      adaptor = bot.registerAdaptor = spy();
-      driver = bot.registerDriver = spy();
-
-      module.register(bot);
+  describe("#adaptors", function() {
+    it('is an array of supplied adaptors', function() {
+      expect(module.adaptors).to.be.eql(['rapiro']);
     });
+  });
 
-    it("registers the 'rapiro' adaptor with the robot", function() {
-      expect(adaptor).to.be.calledWith('cylon-rapiro', 'rapiro');
-    });
-
-    it("registers the 'rapiro' driver with the robot", function() {
-      expect(driver).to.be.calledWith('cylon-rapiro', 'rapiro');
+  describe("#drivers", function() {
+    it('is an array of supplied drivers', function() {
+      expect(module.drivers).to.be.eql(['rapiro']);
     });
   });
 
