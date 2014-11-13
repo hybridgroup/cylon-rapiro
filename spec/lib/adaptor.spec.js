@@ -10,7 +10,7 @@ describe("Cylon.Adaptors.Rapiro", function() {
 
   beforeEach(function() {
     adaptor = new Adaptor({
-      connection: { port: "/dev/null" }
+      port: "/dev/null"
     })
   });
 
@@ -44,7 +44,7 @@ describe("Cylon.Adaptors.Rapiro", function() {
     context("when the serialport is open", function() {
       beforeEach(function() {
         open.yields();
-        adaptor.connection = { emit: spy() }
+        adaptor.emit = spy();
         adaptor.connect(callback);
       });
 
@@ -53,7 +53,7 @@ describe("Cylon.Adaptors.Rapiro", function() {
       });
 
       it("emits the 'connect' event", function() {
-        expect(adaptor.connection.emit).to.be.calledWith('connect');
+        expect(adaptor.emit).to.be.calledWith('connect');
       });
     });
   });
@@ -63,8 +63,7 @@ describe("Cylon.Adaptors.Rapiro", function() {
 
     beforeEach(function() {
       adaptor.serialPort = {};
-      adaptor.connection = { emit: spy() };
-      emit = adaptor.connection.emit;
+      emit = adaptor.emit = spy();
 
       pause = adaptor.serialPort.pause = spy();
       flush = adaptor.serialPort.flush = stub();
