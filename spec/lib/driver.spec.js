@@ -8,7 +8,7 @@ describe("Cylon.Drivers.Rapiro", function() {
   var driver;
 
   beforeEach(function() {
-    driver = new Driver({ adaptor: {} });
+    driver = new Driver({ connection: {} });
   });
 
   it("subclasses Cylon.Driver", function() {
@@ -26,12 +26,12 @@ describe("Cylon.Drivers.Rapiro", function() {
 
   describe("#move", function() {
     beforeEach(function() {
-      driver.adaptor = { write: spy() };
+      driver.connection = { write: spy() };
     });
 
-    it("writes the motion number to the adaptor's #write method", function() {
+    it("writes the motion number to the connection's #write method", function() {
       driver.move(10)
-      expect(driver.adaptor.write).to.be.calledWith("#M10");
+      expect(driver.connection.write).to.be.calledWith("#M10");
     });
   });
 
@@ -117,11 +117,11 @@ describe("Cylon.Drivers.Rapiro", function() {
 
   describe("#led", function() {
     beforeEach(function() {
-      driver.adaptor = { write: spy() };
+      driver.connection = { write: spy() };
     });
 
-    it("writes the LED values to the adaptor", function() {
-      var write = driver.adaptor.write;
+    it("writes the LED values to the connection", function() {
+      var write = driver.connection.write;
       driver.led(255, 0, 10);
       expect(write).to.be.calledWith("#P");
       expect(write).to.be.calledWith("R255");
@@ -133,11 +133,11 @@ describe("Cylon.Drivers.Rapiro", function() {
 
   describe("#setServo", function() {
     beforeEach(function() {
-      driver.adaptor = { write: spy() };
+      driver.connection = { write: spy() };
     });
 
-    it("writes servo values to the adaptor", function() {
-      var write = driver.adaptor.write;
+    it("writes servo values to the connection", function() {
+      var write = driver.connection.write;
       driver.setServo(1, 180);
       expect(write).to.be.calledWith("#P");
       expect(write).to.be.calledWith("S01");
