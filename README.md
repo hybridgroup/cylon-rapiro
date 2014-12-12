@@ -21,8 +21,13 @@ var Cylon = require('cylon');
 
 // Initialize the robot
 Cylon.robot({
-  connection: { name: 'rapiro', adaptor: 'rapiro', port: '/dev/ttyUSB0' },
-  device: {name: 'rapiro', driver: 'rapiro'},
+  connections: {
+    rapiro: { adaptor: 'rapiro', port: '/dev/ttyUSB0' }
+  },
+
+  devices: {
+    rapiro: { driver: 'rapiro' }
+  },
 
   work: function(my) {
     my['doneWalking'] = false ;
