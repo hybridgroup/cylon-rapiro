@@ -1,15 +1,20 @@
 var Cylon = require('cylon');
 
 Cylon.robot({
-  connection: { name: 'rapiro', adaptor: 'rapiro', port: '/dev/ttyUSB0' },
-  device: {name: 'rapiro', driver: 'rapiro'},
+  connections: {
+    rapiro: { adaptor: 'rapiro', port: '/dev/ttyUSB0' }
+  },
+
+  devices: {
+    rapiro: { driver: 'rapiro' }
+  },
 
   work: function(my) {
     after(3..seconds(), function() {
       console.log("rightHand");
       my.rapiro.rightHand(50);
     });
-  
+
     after(6..seconds(), function() {
       console.log("rightHand");
       my.rapiro.rightHand(90);

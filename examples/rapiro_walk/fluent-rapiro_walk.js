@@ -1,11 +1,10 @@
-var cylon = require('cylon');
+var Cylon = require('cylon');
 
-cylon.robot({
-  connection: { name: 'rapiro', adaptor: 'rapiro', port: '/dev/ttyUSB0' },
-  device: {name: 'rapiro', driver: 'rapiro'}
-})
-
-.on('ready', function(robot) {
+Cylon
+  .robot()
+  .connection("rapiro", { adaptor: 'rapiro', port: '/dev/ttyUSB0' })
+  .device("rapiro", { driver: 'rapiro' })
+  .on('ready', function(bot) {
     var walking = false ;
 
     var startWalking = function() {
@@ -14,7 +13,7 @@ cylon.robot({
 
       setInterval(function() {
         if (walking === true) {
-          robot.rapiro.forward();
+          bot.rapiro.forward();
         }
       }, 1000);
     };
@@ -23,10 +22,10 @@ cylon.robot({
       console.log("halt");
       walking = false;
 
-      robot.rapiro.stop();
+      bot.rapiro.stop();
 
       setTimeout(function() {
-        robot.rapiro.led(255, 0, 0);
+        bot.rapiro.led(255, 0, 0);
       }, 1000);
     };
 
@@ -35,6 +34,6 @@ cylon.robot({
     setTimeout(function() {
       stopWalking();
     }, 10000);
-})
+  });
 
-.start();
+Cylon.start();
