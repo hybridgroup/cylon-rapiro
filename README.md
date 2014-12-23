@@ -10,12 +10,16 @@ Want to use the Go programming language to power your robots? Check out our sist
 
 [![Build Status](https://secure.travis-ci.org/hybridgroup/cylon-rapiro.png?branch=master)](http://travis-ci.org/hybridgroup/cylon-rapiro) [![Code Climate](https://codeclimate.com/github/hybridgroup/cylon-rapiro/badges/gpa.svg)](https://codeclimate.com/github/hybridgroup/cylon-rapiro) [![Test Coverage](https://codeclimate.com/github/hybridgroup/cylon-rapiro/badges/coverage.svg)](https://codeclimate.com/github/hybridgroup/cylon-rapiro)
 
-## Getting Started
-Install the module with: `npm install cylon-rapiro`
+## How to Install
 
-## Examples
+Install the module with:
 
-### JavaScript:
+    $ npm install cylon-rapiro
+
+## How to Use
+
+Here is an example of a simple program that makes the Rapiro walk:
+
 ```javascript
 var Cylon = require('cylon');
 
@@ -49,11 +53,13 @@ Cylon.robot({
 }).start();
 ```
 
-## Connecting to Rapiro
+## How to Connect
 
-### Linux
+If you are connected from a Raspberry Pi to the Rapiro board, it will appear as serial port `/dev/ttyACM0`.
+You can find out by running [Gort](http://gort.io)'s `gort scan serial` command.
 
 ## Documentation
+
 We're busy adding documentation to our web site at http://cylonjs.com/ please check there as we continue to work on Cylon.js
 
 Thank you!
