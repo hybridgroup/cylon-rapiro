@@ -1,10 +1,12 @@
-var Cylon = require('cylon');
+"use strict";
+
+var Cylon = require("cylon");
 
 Cylon
   .robot()
-  .connection("rapiro", { adaptor: 'rapiro', port: '/dev/ttyUSB0' })
-  .device("rapiro", { driver: 'rapiro' })
-  .on('ready', function(bot) {
+  .connection("rapiro", { adaptor: "rapiro", port: "/dev/ttyUSB0" })
+  .device("rapiro", { driver: "rapiro" })
+  .on("ready", function(bot) {
     setTimeout(function() {
       bot.rapiro.setServo(7, 50);
     }, 3000);

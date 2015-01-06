@@ -1,6 +1,7 @@
+// jshint expr:true
 "use strict";
 
-var Cylon = require('cylon');
+var Cylon = require("cylon");
 
 var Driver = source("driver");
 
@@ -19,7 +20,7 @@ describe("Cylon.Drivers.Rapiro", function() {
   describe("#commands", function() {
     it("is an object containing Rapiro commands", function() {
       for (var c in driver.commands) {
-        expect(driver.commands[c]).to.be.a('function');
+        expect(driver.commands[c]).to.be.a("function");
       }
     });
   });
@@ -29,8 +30,8 @@ describe("Cylon.Drivers.Rapiro", function() {
       driver.connection = { write: spy() };
     });
 
-    it("writes the motion number to the connection's #write method", function() {
-      driver.move(10)
+    it("writes the motion number to the connection", function() {
+      driver.move(10);
       expect(driver.connection.write).to.be.calledWith("#M10");
     });
   });

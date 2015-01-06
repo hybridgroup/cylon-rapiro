@@ -1,7 +1,8 @@
+// jshint expr:true
 "use strict";
 
-var serialport = require('serialport'),
-    Cylon = require('cylon');
+var serialport = require("serialport"),
+    Cylon = require("cylon");
 
 var Adaptor = source("adaptor");
 
@@ -11,7 +12,7 @@ describe("Cylon.Adaptors.Rapiro", function() {
   beforeEach(function() {
     adaptor = new Adaptor({
       port: "/dev/null"
-    })
+    });
   });
 
   it("subclasses Cylon.Adaptor", function() {
@@ -20,7 +21,7 @@ describe("Cylon.Adaptors.Rapiro", function() {
   });
 
   describe("#constructor", function() {
-    it('sets @serialPort to a SerialPort instance', function() {
+    it("sets @serialPort to a SerialPort instance", function() {
       expect(adaptor.serialPort).to.be.a.instanceOf(serialport.SerialPort);
       expect(adaptor.serialPort.path).to.be.eql("/dev/null");
     });
@@ -36,10 +37,10 @@ describe("Cylon.Adaptors.Rapiro", function() {
       open = adaptor.serialPort.open;
     });
 
-    it('tells the serialport to open', function() {
+    it("tells the serialport to open", function() {
       adaptor.connect(callback);
       expect(open).to.be.called;
-    })
+    });
 
     context("when the serialport is open", function() {
       beforeEach(function() {
@@ -53,7 +54,7 @@ describe("Cylon.Adaptors.Rapiro", function() {
       });
 
       it("emits the 'connect' event", function() {
-        expect(adaptor.emit).to.be.calledWith('connect');
+        expect(adaptor.emit).to.be.calledWith("connect");
       });
     });
   });
@@ -101,7 +102,7 @@ describe("Cylon.Adaptors.Rapiro", function() {
       });
 
       it("emits the 'disconnect' event", function() {
-        expect(emit).to.be.calledWith('disconnect');
+        expect(emit).to.be.calledWith("disconnect");
       });
 
       it("triggers the callback", function() {
@@ -113,10 +114,10 @@ describe("Cylon.Adaptors.Rapiro", function() {
   describe("#commands", function() {
     it("is an array of Rapiro commands", function() {
       var commands = adaptor.commands;
-      expect(commands).to.be.an('array');
+      expect(commands).to.be.an("array");
 
       commands.forEach(function(command) {
-        expect(command).to.be.a('string');
+        expect(command).to.be.a("string");
       });
     });
   });
