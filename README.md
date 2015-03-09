@@ -14,7 +14,7 @@ Want to use the Go programming language to power your robots? Check out our sist
 
 Install the module with:
 
-    $ npm install cylon-rapiro
+    $ npm install cylon cylon-rapiro
 
 ## How to Use
 
