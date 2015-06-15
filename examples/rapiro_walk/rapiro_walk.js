@@ -12,11 +12,11 @@ Cylon.robot({
   },
 
   work: function(my) {
-    var walking = false ;
+    var walking = false;
 
     var startWalking = function() {
       console.log("forward");
-      walking = true ;
+      walking = true;
 
       every((1).second(), function() {
         if (walking) {

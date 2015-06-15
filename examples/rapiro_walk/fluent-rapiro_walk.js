@@ -7,11 +7,11 @@ Cylon
   .connection("rapiro", { adaptor: "rapiro", port: "/dev/ttyUSB0" })
   .device("rapiro", { driver: "rapiro" })
   .on("ready", function(bot) {
-    var walking = false ;
+    var walking = false;
 
     var startWalking = function() {
       console.log("forward");
-      walking = true ;
+      walking = true;
 
       setInterval(function() {
         if (walking === true) {

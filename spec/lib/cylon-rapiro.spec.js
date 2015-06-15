@@ -1,10 +1,9 @@
-// jshint expr:true
 "use strict";
 
-var rapiro = source("cylon-rapiro");
+var rapiro = lib("cylon-rapiro");
 
-var Adaptor = source("adaptor"),
-    Driver = source("driver");
+var Adaptor = lib("adaptor"),
+    Driver = lib("driver");
 
 describe("cylon-rapiro", function() {
   describe("#adaptors", function() {
