@@ -1,6 +1,6 @@
 "use strict";
 
-var rapiro = lib("cylon-rapiro");
+var rapiro = lib("../");
 
 var Adaptor = lib("adaptor"),
     Driver = lib("driver");

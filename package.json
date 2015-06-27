@@ -1,7 +1,6 @@
 {
   "name": "cylon-rapiro",
   "version": "0.12.0",
-  "main": "lib/cylon-rapiro.js",
   "description": "Cylon module for Rapiro",
   "homepage": "http://cylonjs.com",
   "bugs": "https://github.com/hybridgroup/cylon-rapiro/issues",
